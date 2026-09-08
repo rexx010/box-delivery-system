@@ -26,7 +26,7 @@ server:
 
 logging:
   level:
-    com.example.boxdelivery: DEBUG
+    com.smartboxdeliverysystem: DEBUG
 
 springdoc:
   swagger-ui:
