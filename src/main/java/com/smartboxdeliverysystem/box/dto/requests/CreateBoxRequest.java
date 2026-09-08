@@ -14,7 +14,7 @@ public class CreateBoxRequest {
 
     @NotNull
     @DecimalMin(value = "0", inclusive = false, message = "weightLimit must be greater than 0")
-    @DecimalMax(value = "500", message = "weightalimit cannot exceed 500g")
+    @DecimalMax(value = "500", message = "weightLimit cannot exceed 500g")
     private BigDecimal weightLimit;
 
     @NotNull
