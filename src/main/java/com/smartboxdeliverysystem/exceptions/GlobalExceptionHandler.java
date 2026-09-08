@@ -71,18 +71,18 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(status.value(), status.getReasonPhrase(), message));
     }
 
-//    @ExceptionHandler(HandlerMethodValidationException.class)
-//    public ResponseEntity<ErrorResponse> handleMethodValidation(
-//            HandlerMethodValidationException ex) {
-//
-//        String message = ex.getAllValidationResults().stream()
-//                .flatMap(result -> result.getResolvableErrors().stream())
-//                .map(error -> error.getDefaultMessage())
-//                .filter(messages -> messages != null)
-//                .collect(Collectors.joining("; "));
-//
-//        log.warn("Validation failed: {}", message);
-//
-//        return build(HttpStatus.BAD_REQUEST, message);
-//    }
+    @ExceptionHandler(HandlerMethodValidationException.class)
+    public ResponseEntity<ErrorResponse> handleMethodValidation(
+            HandlerMethodValidationException ex) {
+
+        String message = ex.getAllValidationResults().stream()
+                .flatMap(result -> result.getResolvableErrors().stream())
+                .map(error -> error.getDefaultMessage())
+                .filter(messages -> messages != null)
+                .collect(Collectors.joining("; "));
+
+        log.warn("Validation failed: {}", message);
+
+        return build(HttpStatus.BAD_REQUEST, message);
+    }
 }
